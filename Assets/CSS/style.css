@@ -1,0 +1,27 @@
+.header{
+    font-style: italic;
+    color: brown; 
+    text-align: center;
+    margin-top: 20px;
+}
+body{
+    background-color: blanchedalmond; 
+    background-image: url('https://images.complex.com/complex/images/c_limit,dpr_auto,q_90,w_720/fl_lossy,pg_1/k0u5pkdfkrvzmlmxrbll/michael-jordan');
+    opacity: 1.0;
+}
+td{
+    text-align: center;
+}
+.center{
+    text-align: center;
+}
+.container{
+    opacity: 0.85;
+}
+.questionrow{
+    background-color: black; 
+    font-weight: bold
+}
+.answerrow{
+    font-style: italic; 
+}
