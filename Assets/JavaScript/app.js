@@ -13,18 +13,31 @@ $(document).ready(function() {
   console.log("Ready!");
   console.log("Time for our JS and JQuery to kick in!");
 
-  var time = 60; 
-  var timerval; 
-  isCorrect = 0; 
-  inIncorrect = 0; 
-  isUnanswered = 0;  
+  var time = 60;
+  var timerval;
+  isCorrect = 0;
+  inIncorrect = 0;
+  isUnanswered = 0;
 
+  function timer() {
+    timerval = setInterval(decrement, 1000);
+  }
+  function decrement() {
+    time--;
+    console.log(time); 
+  $('.header').text('You have ' + time + ' seconds remaining');
+  $('.header').css("font-weight", "bold"); 
+  $('.header').css('font-size', '30px');
+  // ?????? 
+  }
+  
+  //
   var $body = $("body");
   var $table = $("table");
   hideTable();
   function hideTable() {
     $table.hide();
-  }; 
+  }
 
   var $startButton = $("<button>");
   $startButton.html("Let's See!");
@@ -36,17 +49,18 @@ $(document).ready(function() {
     confirm("Shall We Proceed?");
     $startButton.hide();
     showTable();
+    timer(); 
   });
 
   function showTable() {
     $("#firstQ").text(questions.firstQ);
-    $("#secondQ").text(questions.secondQ); 
+    $("#secondQ").text(questions.secondQ);
     $("#thirdQ").text(questions.thirdQ);
-    $("#fourthQ").text(questions.fourthQ); 
+    $("#fourthQ").text(questions.fourthQ);
     $("#fifthQ").text(questions.fifthQ);
-    $("#sixthQ").text(questions.sixthQ); 
+    $("#sixthQ").text(questions.sixthQ);
     $("#seventhQ").text(questions.seventhQ);
     $table.show();
-
-  }; 
+    console.log("Dynamically Added Questions DOM Manip");
+  }
 });

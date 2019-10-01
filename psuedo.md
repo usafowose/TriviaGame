@@ -21,9 +21,9 @@ JS
 >> create timer function timer() {
 >>          timerval = setInterval(decrement, 1000)           
 >>      }     
->> Start timers. if timer is > 0, *******, else {finished()}
->>>if timer is >0, 
 5. decrement(); 
+>>Start timers. if timer is > 0, *******, else {finished()}
+>>>if timer is >0, 
 >>number --
 >> append number to header via jquery and strng interpolation
 >>function in which $(.header).html = 
