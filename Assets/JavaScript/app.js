@@ -9,29 +9,17 @@ var questions = {
     "The Los Angeles Lakers won the 1980 NBA Championship with who as their assisstant coach?",
   seventhQ: "Dwyane Wade's nickname is ... ?"
 };
+
 $(document).ready(function() {
   console.log("Ready!");
   console.log("Time for our JS and JQuery to kick in!");
 
-  var time = 60;
+  var time = 3;
   var timerval;
-  isCorrect = 0;
-  inIncorrect = 0;
-  isUnanswered = 0;
+  var isCorrect = 0;
+  var isIncorrect = 0;
+  var isUnanswered = 0;
 
-  function timer() {
-    timerval = setInterval(decrement, 1000);
-  }
-  function decrement() {
-    time--;
-    console.log(time); 
-  $('.header').text('You have ' + time + ' seconds remaining');
-  $('.header').css("font-weight", "bold"); 
-  $('.header').css('font-size', '30px');
-  // ?????? 
-  }
-  
-  //
   var $body = $("body");
   var $table = $("table");
   hideTable();
@@ -49,7 +37,7 @@ $(document).ready(function() {
     confirm("Shall We Proceed?");
     $startButton.hide();
     showTable();
-    timer(); 
+    timer();
   });
 
   function showTable() {
@@ -62,5 +50,46 @@ $(document).ready(function() {
     $("#seventhQ").text(questions.seventhQ);
     $table.show();
     console.log("Dynamically Added Questions DOM Manip");
+  }
+
+  function timer() {
+    timerval = setInterval(decrement, 1000);
+  }
+
+  function decrement() {
+    time--;
+    console.log(time);
+    var $header = $(".header");
+    $header.text("You have " + time + " seconds remaining");
+    $header.css("font-weight", "bold");
+    $header.css("font-size", "30px");
+    time > 0 ? $header.text("You have " + time + " seconds remaining") : stop();
+  }
+
+  function stop() {
+    clearInterval(timerval);
+    results();
+  }
+
+  function results() {
+    var container = $(".container");
+    container.hide();
+    var resultsdiv = $("#results");
+    resultsdiv.css("text-align", "center");
+    var resultsHeader = $("<h1>");
+    resultsHeader.text("Final Score");
+    var correctLine = $("<p>");
+    correctLine.text("You answered " + isCorrect + " questions correctly.");
+    var incorrectLine = $("<p>");
+    incorrectLine.text(
+      "You answered " + isIncorrect + " questions incorrectly."
+    );
+    var unansweredLine = $("<p>");
+    unansweredLine.text("You have " + isUnanswered + " unanswered questions.");
+    resultsdiv.append(resultsHeader);
+    resultsdiv.append(correctLine);
+    resultsdiv.append(incorrectLine);
+    resultsdiv.append(unansweredLine);
+    // $('#results').html(<h2>Hello</h2>)
   }
 });

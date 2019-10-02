@@ -29,5 +29,6 @@ JS
 >>function in which $(.header).html = 
 6. finished(); 
 >>>a. Stop Timer funct (stop) { (clearinterval(timerval)) }
->>>b. 
+>>>b. hidetable()
+>>>c. 
 7. 
