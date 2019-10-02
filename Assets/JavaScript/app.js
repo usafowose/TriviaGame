@@ -14,7 +14,7 @@ $(document).ready(function() {
   console.log("Ready!");
   console.log("Time for our JS and JQuery to kick in!");
 
-  var time = 3;
+  var time = 60;
   var timerval;
   var isCorrect = 0;
   var isIncorrect = 0;
